@@ -3,7 +3,7 @@ import { ArrowDownRight, ArrowRight, ArrowUpRight, MoveUpRight } from "lucide-re
 import { DeliverySequence } from "@/components/delivery-sequence";
 import { Reveal } from "@/components/reveal";
 import { ProjectCard, TextLink } from "@/components/ui";
-import { contact, experience, impact, projects, speaking, testimonialEvidence } from "@/lib/content";
+import { experience, impact, projects, speaking, testimonialEvidence } from "@/lib/content";
 
 export default function HomePage() {
   const featured = projects.filter(project => project.featured);
@@ -146,7 +146,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="ed-next"><div className="container"><div><span className="ed-section-index">WHAT'S NEXT?</span><h2>Good work starts<br/>with a <em>conversation.</em></h2><p>For consulting, programme leadership, facilitation and collaborations.</p></div><Link href="/contact" aria-label="Contact Bosun Kehinde" className="ed-next-link"><ArrowUpRight size={42}/></Link></div></section>
+      <section className="ed-next"><div className="container"><div><span className="ed-section-index">WHAT&apos;S NEXT?</span><h2>Good work starts<br/>with a <em>conversation.</em></h2><p>For consulting, programme leadership, facilitation and collaborations.</p></div><Link href="/contact" aria-label="Contact Bosun Kehinde" className="ed-next-link"><ArrowUpRight size={42}/></Link></div></section>
     </>
   );
 }
