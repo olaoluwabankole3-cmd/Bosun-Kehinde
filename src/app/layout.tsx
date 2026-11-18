@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Manrope, DM_Sans } from "next/font/google";
 import "./globals.css";
+import "./editorial.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { EditorialMotion } from "@/components/editorial-motion";
 import { contact } from "@/lib/content";
 
 const display = Manrope({ subsets: ["latin"], variable: "--font-display", display: "swap" });
@@ -21,6 +23,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <a className="skip-link" href="#main">Skip to content</a>
         <SiteHeader />
+        <EditorialMotion />
         <main id="main">{children}</main>
         <SiteFooter />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
