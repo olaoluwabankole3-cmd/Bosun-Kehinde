@@ -1,78 +1,152 @@
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, ArrowRight, MoveUpRight } from "lucide-react";
-import { HeroDiagram } from "@/components/hero-diagram";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, MoveUpRight } from "lucide-react";
+import { DeliverySequence } from "@/components/delivery-sequence";
 import { Reveal } from "@/components/reveal";
-import { Eyebrow, ProjectCard, SectionHeading, TextLink } from "@/components/ui";
-import { expertise, impact, projects, speaking, testimonialEvidence } from "@/lib/content";
+import { ProjectCard, TextLink } from "@/components/ui";
+import { contact, experience, impact, projects, speaking, testimonialEvidence } from "@/lib/content";
 
 export default function HomePage() {
+  const featured = projects.filter(project => project.featured);
+
   return (
     <>
-      <section className="home-hero">
-        <div className="hero-grain"/>
-        <div className="container hero-container">
-          <div className="hero-upper"><Eyebrow>TECHNOLOGY · STRATEGY · TRANSFORMATION</Eyebrow><span className="hero-location">BASED IN LAGOS, NIGERIA <span className="location-mark">↗</span> WORKING ACROSS BORDERS</span></div>
-          <div className="hero-main">
-            <div className="hero-copy">
-              <div className="hero-mini-number">PORTFOLIO / 2026</div>
-              <h1>Complex<br/>projects.<br/><span>Clear</span> outcomes<span className="period">.</span></h1>
-              <p className="hero-intro">I&apos;m <strong>Bosun Kehinde.</strong> I bring people, technology and strategy together to turn ambitious ideas into outcomes that matter.</p>
-              <div className="hero-actions"><Link href="/work" className="button button-dark">Explore selected work <ArrowUpRight size={19}/></Link><Link href="/about" className="underlined-link">Get to know me <ArrowRight size={18}/></Link></div>
-            </div>
-            <div className="hero-art"><HeroDiagram/></div>
+      <section className="ed-hero" aria-labelledby="home-title">
+        <div className="container">
+          <div className="ed-hero-labels">
+            <span><i className="ed-bullet"/> BOSUN KEHINDE / PROFESSIONAL PORTFOLIO</span>
+            <span>BASED IN LAGOS, NIGERIA <span className="ed-location-mark">↗</span> GLOBAL PERSPECTIVE</span>
           </div>
-          <div className="hero-bottom"><a href="#selected-work" className="scroll-cue"><ArrowDown size={17}/> SCROLL TO EXPLORE</a><span>PROGRAMME LEADERSHIP / ENTERPRISE DELIVERY / AGILE TRANSFORMATION</span></div>
+          <div className="ed-hero-layout">
+            <div className="ed-hero-copy">
+              <p className="ed-overline">TECHNOLOGY. PEOPLE. DELIVERY.</p>
+              <h1 id="home-title">Complex<br/>projects.<br/><em>Clear</em> outcomes<span className="ed-fullstop">.</span></h1>
+              <p className="ed-hero-description">
+                I&apos;m <strong>Bosun Kehinde</strong> — a programme and technology leader
+                bringing strategy, people and execution together to move complex work forward.
+              </p>
+              <div className="ed-actions">
+                <Link href="/work" className="ed-primary">Explore selected work <ArrowUpRight size={18}/></Link>
+                <Link href="/about" className="ed-inline">Discover my story <ArrowRight size={17}/></Link>
+              </div>
+            </div>
+            <DeliverySequence/>
+          </div>
+          <div className="ed-hero-foot">
+            <a href="#introduction"><span className="ed-down-arrow"><ArrowDownRight size={18}/></span> SCROLL TO EXPLORE</a>
+            <span>PROGRAMME MANAGEMENT <i/> AGILE DELIVERY <i/> TRANSFORMATION</span>
+            <span>001 — 006</span>
+          </div>
         </div>
       </section>
 
-      <section className="intro-strip"><div className="container intro-strip-inner"><p>REAL-WORLD EXPERIENCE ACROSS</p><div>FINANCIAL SYSTEMS <span>✳</span> ENTERPRISE TECHNOLOGY <span>✳</span> PUBLIC SECTOR <span>✳</span> DIGITAL TRANSFORMATION</div></div></section>
-
-      <section className="section section-intro">
-        <div className="container intro-grid">
-          <Reveal><div><Eyebrow>01 / THE INTRODUCTION</Eyebrow><div className="intro-signature">BK<span>.</span></div></div></Reveal>
-          <Reveal delay={90}><div><h2>Good leadership<br/>makes <em>complexity</em><br/>work for you.</h2><p>From large-scale enterprise implementations to agile product ecosystems, my work lives at the intersection of business ambition and disciplined execution. I bring structure when it matters, adaptability when it counts, and people into the centre of every transformation.</p><TextLink href="/about">More about my approach</TextLink></div></Reveal>
+      <section className="ed-introduction" id="introduction">
+        <div className="container ed-intro-grid">
+          <Reveal><div className="ed-intro-aside"><span className="ed-section-index">01 / INTRODUCTION</span><span className="ed-intro-rule"/><span>THE WORK IS NEVER<br/>JUST THE WORK.</span></div></Reveal>
+          <Reveal delay={80}><div className="ed-intro-main"><h2>Progress happens when<br/>the <em>right things</em><br/>come together.</h2><div className="ed-intro-bottom"><p>Across enterprise systems, financial technology, public-sector platforms and organisational change, I have focused on the same challenge: turning ambitious objectives into work that delivers.</p><TextLink href="/about">The story behind my approach</TextLink></div></div></Reveal>
         </div>
       </section>
 
-      <section id="selected-work" className="section section-work">
+      <section className="ed-work" id="selected-work">
         <div className="container">
-          <Reveal><SectionHeading index="02 / SELECTED WORK" title={<>Work that moves<br/><em>organisations forward.</em></>} intro="A selection of programmes, systems and transformations that reveal the scale and variety of my experience."/></Reveal>
-          <div className="featured-grid">{projects.filter(project => project.featured).map((project,index) => <Reveal key={project.slug} className={index === 0 ? "featured-large" : ""} delay={index * 80}><ProjectCard project={project}/></Reveal>)}</div>
-          <div className="work-more"><TextLink href="/work">Explore the full portfolio</TextLink><span>06 SELECTED CASE STUDIES</span></div>
+          <Reveal><div className="ed-section-heading">
+            <div><span className="ed-section-index">02 / SELECTED WORK</span><h2>Selected work.<br/><em>Lasting impact.</em></h2></div>
+            <p>A closer look at programmes and platforms where delivery discipline met complex, real-world challenges.</p>
+          </div></Reveal>
+          <div className="ed-project-grid">
+            {featured.map((project, index) => (
+              <Reveal key={project.slug} className={"ed-project-cell ed-project-cell-" + (index + 1)} delay={index * 95}>
+                <ProjectCard project={project}/>
+              </Reveal>
+            ))}
+          </div>
+          <div className="ed-work-footer"><span>01 — 03 / FEATURED CASE STUDIES</span><TextLink href="/work">Explore all six projects</TextLink></div>
         </div>
       </section>
 
-      <section className="section impact-section">
+      <section className="ed-impact" aria-labelledby="impact-title">
         <div className="container">
-          <Reveal><div className="impact-heading"><Eyebrow light>03 / THE IMPACT</Eyebrow><h2>Impact you can<br/><em>put a number to.</em></h2><p>Selected outcomes reported from previous leadership and delivery roles.</p></div></Reveal>
-          <div className="impact-grid">{impact.map((item,index) => <Reveal key={item.label} delay={index*80}><div className="impact-item"><span className="impact-number">{item.value}</span><h3>{item.label}</h3><p>{item.note}</p></div></Reveal>)}</div>
-          <p className="impact-note">Figures are taken from the supplied professional CV and remain subject to public-use approval.</p>
+          <Reveal><div className="ed-impact-head"><span className="ed-section-index">03 / DELIVERY RECORD</span><h2 id="impact-title">Not just activity.<br/><em>Evidence of progress.</em></h2></div></Reveal>
+          <div className="ed-impact-grid">
+            {impact.map((item,index) => (
+              <Reveal key={item.label} delay={index * 60}>
+                <div className="ed-impact-stat"><span className="ed-impact-ordinal">0{index+1}</span><strong>{item.value}</strong><h3>{item.label}</h3><p>{item.note}</p></div>
+              </Reveal>
+            ))}
+          </div>
+          <p className="ed-impact-disclaimer">Selected figures are from the supplied professional CV and are subject to confirmation for public use.</p>
         </div>
-        <div className="impact-decoration" aria-hidden="true">RESULTS / NOT RHETORIC</div>
       </section>
 
-      <section className="section approach-section">
+      <section className="ed-practice">
         <div className="container">
-          <Reveal><SectionHeading index="04 / HOW I WORK" title={<>The thinking behind<br/><em>the delivery.</em></>} intro="Every transformation is different. The principles behind good delivery should not be."/></Reveal>
-          <div className="expertise-grid">{expertise.map((item,index) => <Reveal key={item.number} delay={index*50}><div className="expertise-item"><span className="expertise-number">{item.number}</span><div className="expertise-symbol">{index === 0 ? "↗" : index === 1 ? "◎" : index === 2 ? "⌘" : "✳"}</div><h3>{item.name}</h3><p>{item.description}</p></div></Reveal>)}</div>
-          <div className="approach-cta"><TextLink href="/leadership">Explore leadership & experience</TextLink></div>
+          <Reveal><div className="ed-section-heading ed-practice-heading">
+            <div><span className="ed-section-index">04 / WORKING PHILOSOPHY</span><h2>Different contexts.<br/><em>Intentional delivery.</em></h2></div>
+            <p>There is no one-size-fits-all method. The starting point is always the challenge, the people and the outcome.</p>
+          </div></Reveal>
+          <div className="ed-practice-steps">
+            {[
+              { n: "01", headline: "Understand what matters.", body: "Find the real problem, agree on the desired outcome and make complexity understandable." },
+              { n: "02", headline: "Bring everyone into focus.", body: "Build alignment across stakeholders, delivery teams and changing organisational priorities." },
+              { n: "03", headline: "Adapt. Deliver. Improve.", body: "Combine the right methods, keep progress visible and continuously improve what works." }
+            ].map((step,index) => (
+              <Reveal key={step.n} delay={index*75}>
+                <div className="ed-practice-step">
+                  <span>{step.n}</span>
+                  <h3>{step.headline}</h3>
+                  <p>{step.body}</p>
+                  <span className="ed-step-arrow"><ArrowUpRight size={21}/></span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <TextLink href="/leadership">Leadership and advisory experience</TextLink>
         </div>
       </section>
 
-      <section className="section speaking-feature">
-        <div className="container speaking-feature-grid">
-          <Reveal><div className="speaking-feature-art"><span className="art-eyebrow">FROM EXPERIENCE → TO EXCHANGE</span><div className="speaking-feature-circle"><span>IDEAS<br/>IN<br/><em>MOTION.</em></span></div><div className="art-footer"><span>KNOWLEDGE SHARED</span><span>2023 — PRESENT</span></div></div></Reveal>
-          <Reveal delay={80}><div className="speaking-feature-copy"><Eyebrow>05 / BEYOND DELIVERY</Eyebrow><h2>Progress grows<br/>when knowledge<br/><em>is shared.</em></h2><p>Teaching, facilitating and speaking are natural extensions of my work. I share grounded lessons in Agile, project management and digital transformation to help people and teams grow.</p><div className="speaking-sample"><span>{speaking[0].year}</span><p>{speaking[0].title}<small>{speaking[0].host}</small></p><MoveUpRight size={19}/></div><TextLink href="/speaking">Speaking & facilitation</TextLink></div></Reveal>
+      <section className="ed-leadership">
+        <div className="container ed-leadership-grid">
+          <Reveal><div className="ed-leadership-left">
+            <span className="ed-section-index">05 / THROUGH THE YEARS</span>
+            <h2>From implementation<br/>to <em>influence.</em></h2>
+            <p>Experience spanning enterprise implementation, project and programme delivery, regional service leadership and strategic advisory.</p>
+            <TextLink href="/leadership" light>Explore the full journey</TextLink>
+          </div></Reveal>
+          <div className="ed-leadership-list">
+            {experience.slice(0,4).map((item,index) => (
+              <Reveal key={item.title+item.period} delay={index*65}>
+                <div className="ed-leadership-entry"><span>{item.period}</span><div><h3>{item.title}</h3><p>{item.org}</p></div><ArrowUpRight size={19}/></div>
+              </Reveal>
+            ))}
+            <div className="ed-leadership-endnote">CAREER HIGHLIGHTS / SELECTED ROLES</div>
+          </div>
         </div>
       </section>
 
-      <section className="section testimonial-section">
-        <div className="container">
-          <Reveal><div className="testimonial-head"><Eyebrow>06 / COMMUNITY VOICES</Eyebrow><h2>Shared ideas.<br/><em>Real conversations.</em></h2></div></Reveal>
-          <div className="testimonial-grid">{testimonialEvidence.map((item,index) => <Reveal key={item.name} delay={index * 100}><a href={item.url} target="_blank" rel="noopener noreferrer" className="testimonial-card"><span className="quote-mark">“</span><p>{item.excerpt}</p><div><strong>{item.name}</strong><span>{item.role}</span></div><span className="testimonial-source">VIEW ORIGINAL LINKEDIN POST <ArrowUpRight size={16}/></span></a></Reveal>)}</div>
-          <p className="evidence-note">Short excerpts are sourced from the supplied testimonial document. See the original posts for full context.</p>
+      <section className="ed-speaking">
+        <div className="container ed-speaking-grid">
+          <Reveal><div className="ed-speaking-poster">
+            <div className="ed-poster-top"><span>EXCHANGE<br/>OF IDEAS</span><span>BK / 2024</span></div>
+            <div className="ed-poster-main"><span>BEYOND<br/>THE<br/><em>BRIEF.</em></span></div>
+            <div className="ed-poster-footer"><span>LEARNING / LEADING / SHARING</span><span>↗</span></div>
+          </div></Reveal>
+          <Reveal delay={90}><div className="ed-speaking-copy">
+            <span className="ed-section-index">06 / SPEAKING & FACILITATION</span>
+            <h2>Experience is useful.<br/><em>Shared experience</em><br/>is powerful.</h2>
+            <p>From Agile Nigeria sessions to technology upskilling, I share practical lessons that help people navigate change and deliver with confidence.</p>
+            <div className="ed-speaking-event"><span>{speaking[0].year}</span><div><strong>{speaking[0].title}</strong><small>{speaking[0].host}</small></div><MoveUpRight size={19}/></div>
+            <TextLink href="/speaking">Explore speaking engagements</TextLink>
+          </div></Reveal>
         </div>
       </section>
+
+      <section className="ed-quote">
+        <div className="container ed-quote-layout">
+          <Reveal><span className="ed-section-index">FROM THE COMMUNITY / 01</span></Reveal>
+          <Reveal delay={65}><div><span className="ed-quotation-mark">“</span><blockquote>Thank you, Bosun Kehinde for guiding us through the enlightening session...</blockquote><div className="ed-quote-attribution"><span><strong>{testimonialEvidence[0].name}</strong><small>{testimonialEvidence[0].role} · Public LinkedIn response</small></span><a href={testimonialEvidence[0].url} target="_blank" rel="noopener noreferrer">Read original post <ArrowUpRight size={17}/></a></div></div></Reveal>
+        </div>
+      </section>
+
+      <section className="ed-next"><div className="container"><div><span className="ed-section-index">WHAT'S NEXT?</span><h2>Good work starts<br/>with a <em>conversation.</em></h2><p>For consulting, programme leadership, facilitation and collaborations.</p></div><Link href="/contact" aria-label="Contact Bosun Kehinde" className="ed-next-link"><ArrowUpRight size={42}/></Link></div></section>
     </>
   );
 }
