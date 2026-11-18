@@ -45,6 +45,7 @@ export function DeliverySequence() {
       <div className="ds-summary" aria-live="polite">
         <span className="ds-summary-rule"/>
         <span>SELECTED STAGE / {stages[active].number}</span>
+        <strong className="ds-summary-title">{stages[active].title}</strong>
         <p>{stages[active].detail}</p>
       </div>
       <div className="ds-endline"><span>CLARITY IS A DELIVERY ADVANTAGE.</span><span>BK / METHODOLOGY</span></div>
