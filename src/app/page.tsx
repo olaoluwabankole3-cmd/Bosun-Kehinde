@@ -146,7 +146,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="ed-next"><div className="container"><div><span className="ed-section-index">WHAT&apos;S NEXT?</span><h2>Good work starts<br/>with a <em>conversation.</em></h2><p>For consulting, programme leadership, facilitation and collaborations.</p></div><Link href="/contact" aria-label="Contact Bosun Kehinde" className="ed-next-link"><ArrowUpRight size={42}/></Link></div></section>
     </>
   );
 }
