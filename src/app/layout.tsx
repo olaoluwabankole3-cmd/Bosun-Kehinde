@@ -9,7 +9,6 @@ const display = Manrope({ subsets: ["latin"], variable: "--font-display", displa
 const body = DM_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bosunkehinde.com"),
   title: { default: "Bosun Kehinde — Technology, Strategy & Delivery", template: "%s | Bosun Kehinde" },
   description: "Explore the work, leadership and speaking engagements of Bosun Kehinde — technology and programme management leader focused on enterprise transformation and measurable outcomes.",
   openGraph: { title: "Bosun Kehinde — Complex Projects. Clear Outcomes.", description: "Technology, strategy and enterprise transformation.", type: "website", locale: "en_NG" },
