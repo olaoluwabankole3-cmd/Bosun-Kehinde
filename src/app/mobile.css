@@ -355,3 +355,21 @@
   .mobile-nav { transition:none; }
   .ds-stage,.ds-node { transition:none; }
 }
+
+/* Narrow leadership pages: ensure oversized editorial lettering cannot define a wider grid. */
+@media (max-width:600px) {
+  .advisory-grid, .advisory-grid > .reveal, .advisory-visual, .advisory-copy {
+    min-width:0;
+    max-width:100%;
+  }
+  .advisory-visual { padding:clamp(19px,5.6vw,30px); }
+  .advisory-visual > div {
+    font-size:clamp(38px,10vw,52px);
+    line-height:1.04;
+    overflow-wrap:break-word;
+    max-width:100%;
+  }
+  .advisory-visual > span { max-width:100%; overflow-wrap:anywhere; line-height:1.5; }
+  .leadership-highlights,.leadership-metrics,.leader-statement-grid { min-width:0; }
+  .leadership-metrics strong { font-size:clamp(50px,15vw,75px); }
+}
