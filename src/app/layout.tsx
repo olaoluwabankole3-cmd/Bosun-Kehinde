@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, DM_Sans } from "next/font/google";
 import "./globals.css";
 import "./editorial.css";
+import "./mobile.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { EditorialMotion } from "@/components/editorial-motion";
