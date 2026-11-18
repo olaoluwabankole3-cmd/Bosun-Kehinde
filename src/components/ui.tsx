@@ -23,7 +23,7 @@ export function ProjectVisual({ project, compact = false }: { project: Project; 
         <div className="fv-ledger-top"><span>REVENUE / ASSURANCE</span><span>DELIVERY LOG</span></div>
         <div className="fv-ledger-figure"><span>48</span><span>%<small>REPORTED INCREASE</small></span></div>
         <div className="fv-ledger-rows">
-          {[["COLLECTION NETWORK","87%"],["FIELD OPERATIONS","70%"],["DIGITAL WORKFLOW","94%"]].map(([label,width],i)=><div key={label}><span>0{i+1} / {label}</span><i><b style={{width}}/></i></div>)}
+          {["COLLECTION NETWORK","FIELD OPERATIONS","DIGITAL WORKFLOW"].map((label,i)=><div key={label}><span>0{i+1} / {label}</span><i/></div>)}
         </div>
       </div>}
 
