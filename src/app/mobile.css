@@ -373,3 +373,21 @@
   .leadership-highlights,.leadership-metrics,.leader-statement-grid { min-width:0; }
   .leadership-metrics strong { font-size:clamp(50px,15vw,75px); }
 }
+
+/* Final phone typography pass: preserve actual word boundaries in tightly tracked headings. */
+@media (max-width:600px) {
+  main h1,main h2,main h3 {
+    letter-spacing:-.038em;
+    word-spacing:.115em;
+  }
+  main h1 em,main h2 em,main h3 em { letter-spacing:-.04em; }
+  .ed-hero h1 { letter-spacing:-.065em; word-spacing:.035em; }
+  .ed-intro-main h2,.ed-section-heading h2,.ed-speaking-copy h2,
+  .ed-leadership-left h2,.ed-quote blockquote,.page-intro h1,
+  .story-copy h2,.contact-sidebar h2 { word-spacing:.13em; }
+  .ed-work .project-card-bottom h3,.project-card-bottom h3,
+  .ed-practice-step h3,.ed-leadership-entry h3 { letter-spacing:-.028em; word-spacing:.16em; }
+  .contact-form-head p { letter-spacing:-.022em; word-spacing:.13em; }
+  .footer-top h2 { letter-spacing:-.042em; word-spacing:.10em; }
+  .footer-wordmark { letter-spacing:-.045em; word-spacing:.22em; }
+}
