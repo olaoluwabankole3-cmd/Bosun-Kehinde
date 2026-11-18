@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import { Eyebrow, ProjectVisual, TextLink } from "@/components/ui";
+import { Eyebrow, ProjectVisual } from "@/components/ui";
 import { projects } from "@/lib/content";
 
 type Props = { params: Promise<{ slug: string }> };
