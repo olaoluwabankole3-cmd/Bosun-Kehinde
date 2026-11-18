@@ -1,0 +1,22 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/reveal";
+import { Eyebrow, PageIntro, SectionHeading, TextLink } from "@/components/ui";
+import { expertise, experience } from "@/lib/content";
+
+export const metadata: Metadata = { title: "About", description: "Meet Bosun Kehinde — a technology and programme management leader working across enterprise transformation, project delivery and Agile." };
+
+export default function AboutPage() {
+  return <>
+    <PageIntro index="02" eyebrow="THE PERSON BEHIND THE PROJECTS" title={<>Beyond the plans.<br/><em>Behind the progress.</em></>} description="My work is rooted in one belief: the best outcomes come when clear strategy, adaptable methods and the right people move together."/>
+    <section className="section story-section"><div className="container story-layout">
+      <Reveal><div className="story-visual"><div className="story-monogram">B<span>K</span><i>.</i></div><p>BRIDGING VISION<br/>AND EXECUTION</p><span>EST. IN ENTERPRISE DELIVERY</span></div></Reveal>
+      <Reveal delay={80}><div className="story-copy"><Eyebrow>01 / MY STORY</Eyebrow><h2>Making complicated things <em>achievable.</em></h2><p>I&apos;m Olatunbosun Adura Kehinde — Bosun to colleagues and collaborators. My career has evolved from hands-on systems implementation to leading technology programmes, service delivery, cross-functional teams and business operations.</p><p>Along the way, I&apos;ve worked across financial platforms, HR and payroll systems, public infrastructure, enterprise integration, electric mobility and organisational transformation. What connects those experiences is an appreciation for the people behind the systems.</p><p>My approach combines the structure of traditional programme management with the flexibility of Agile delivery. The method should serve the challenge — not the other way around.</p><TextLink href="/work">See the work behind the story</TextLink></div></Reveal>
+    </div></section>
+    <section className="section philosophy-section"><div className="container"><Reveal><Eyebrow light>02 / PRINCIPLES</Eyebrow><h2>Strategy without execution<br/>is only <em>intention.</em></h2><p>“Agility, collaboration and continuous improvement” aren&apos;t just principles on paper. They shape how I build relationships, facilitate decisions and help teams deliver meaningful change.</p></Reveal></div></section>
+    <section className="section"><div className="container"><Reveal><SectionHeading index="03 / EXPERTISE" title={<>Where I bring<br/><em>the most value.</em></>}/></Reveal><div className="about-expertise">{expertise.map((item,index) => <Reveal key={item.number} delay={index*55}><div><span>{item.number}</span><h3>{item.name}</h3><p>{item.description}</p></div></Reveal>)}</div></div></section>
+    <section className="section timeline-section"><div className="container"><Reveal><SectionHeading index="04 / CAREER JOURNEY" title={<>A career built<br/><em>through delivery.</em></>} intro="A selection of roles and responsibilities from the professional CV."/></Reveal><div className="timeline">{experience.map((item,index) => <Reveal key={item.period + item.title} delay={index*25}><div className="timeline-item"><span className="timeline-period">{item.period}</span><span className="timeline-dot"/><div><h3>{item.title}</h3><strong>{item.org}</strong><p>{item.summary}</p></div></div></Reveal>)}</div></div></section>
+    <section className="section education-section"><div className="container education-grid"><Reveal><div><Eyebrow>05 / FOUNDATION</Eyebrow><h2>Learning never<br/><em>stands still.</em></h2><p>Professional growth has been a constant across my career, from engineering education to Agile, risk management and enterprise technology.</p></div></Reveal><Reveal delay={80}><div className="education-list"><div><span>EDUCATION</span><h3>B.Sc. Chemical Engineering</h3><p>Obafemi Awolowo University · 2005</p></div><div><span>PROFESSIONAL DEVELOPMENT</span><h3>Agile, Scrum & enterprise leadership</h3><p>Professional Scrum Master (International Scrum Institute), SAFe 5.1 training, ISO 31000 risk management training, Oracle functional training, Generative AI, HSE Level 2.</p></div><Link href="/contact" className="button button-dark">Start a conversation <ArrowUpRight size={18}/></Link></div></Reveal></div></section>
+  </>;
+}

@@ -1,0 +1,17 @@
+import type { Metadata } from "next";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { Reveal } from "@/components/reveal";
+import { Eyebrow, PageIntro, SectionHeading } from "@/components/ui";
+import { experience, impact } from "@/lib/content";
+
+export const metadata: Metadata = { title: "Leadership & Advisory", description: "Explore Bosun Kehinde's leadership, advisory, service delivery and team management experience." };
+export default function LeadershipPage() {
+  return <>
+    <PageIntro index="04" eyebrow="LEADERSHIP / ADVISORY" title={<>Lead with clarity.<br/><em>Deliver with purpose.</em></>} description="Effective leadership connects people, commercial realities and delivery discipline. My focus is creating the conditions for teams and organisations to succeed." dark/>
+    <section className="section leader-statement"><div className="container leader-statement-grid"><Reveal><Eyebrow>01 / THE APPROACH</Eyebrow></Reveal><Reveal delay={60}><div><h2>Good leadership is not about having every answer. It&apos;s about <em>moving people towards the right ones.</em></h2><p>Across programme leadership, service delivery and regional business operations, I work to build alignment, simplify decisions and support consistent execution. That means understanding the business and creating room for teams to do their best work.</p></div></Reveal></div></section>
+    <section className="section leadership-highlights"><div className="container"><Reveal><SectionHeading index="02 / MEASURABLE DELIVERY" title={<>Accountability<br/><em>in action.</em></>}/></Reveal><div className="leadership-metrics">{impact.slice(0,3).map(item => <Reveal key={item.label}><div><strong>{item.value}</strong><h3>{item.label}</h3><p>{item.note}</p></div></Reveal>)}</div></div></section>
+    <section className="section advisory-section"><div className="container advisory-grid"><Reveal><div className="advisory-visual"><span>BOARD / 2026</span><div>ADVISE.<br/>CONNECT.<br/><em>ENABLE.</em></div><span>PARTNERSHIPS & RESOURCE MOBILISATION</span></div></Reveal><Reveal delay={85}><div className="advisory-copy"><Eyebrow>03 / CURRENT ADVISORY WORK</Eyebrow><h2>Thinking beyond<br/><em>the project.</em></h2><p>As an Advisory Board Member for Partnerships & Resource Mobilization at MyDreamConnect Academy for Change & Development Foundation, I contribute strategic guidance on donor engagement, fundraising, partnerships and long-term organisational sustainability.</p><p>This role broadens my work from programme execution into supporting the relationships and decisions that enable sustained impact.</p><span className="small-meta">SEPTEMBER 2026 — PRESENT · AS LISTED IN SUPPLIED CV</span></div></Reveal></div></section>
+    <section className="section timeline-section"><div className="container"><Reveal><SectionHeading index="04 / LEADERSHIP EXPERIENCE" title={<>Experience that<br/><em>connects the dots.</em></>}/></Reveal><div className="timeline">{experience.slice(0,6).map(item => <Reveal key={item.period + item.title}><div className="timeline-item"><span className="timeline-period">{item.period}</span><span className="timeline-dot"/><div><h3>{item.title}</h3><strong>{item.org}</strong><p>{item.summary}</p></div></div></Reveal>)}</div><Link href="/contact" className="button button-dark" style={{ marginTop:48 }}>Discuss an opportunity <ArrowUpRight size={18}/></Link></div></section>
+  </>;
+}
