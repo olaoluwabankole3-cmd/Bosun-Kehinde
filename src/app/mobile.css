@@ -391,3 +391,14 @@
   .footer-top h2 { letter-spacing:-.042em; word-spacing:.10em; }
   .footer-wordmark { letter-spacing:-.045em; word-spacing:.22em; }
 }
+
+/* Phone motion: the four phases are compact tappable selectors; full copy lives in the active detail. */
+.ds-summary-title { display:none; }
+@media (max-width:600px) {
+  .ds-stage { min-height:70px; align-items:center; padding:12px 10px; }
+  .ds-node { width:30px; height:30px; }
+  .ds-step-tag { font-size:9px; letter-spacing:.07em; margin-bottom:0; line-height:1.4; }
+  .ds-step-copy strong { display:none; }
+  .ds-summary-title { display:block; color:#f7f1e5; font-family:var(--font-display); font-size:18px; font-weight:600; line-height:1.3; margin-top:9px; letter-spacing:-.025em; word-spacing:.12em; }
+  .ds-summary p { margin-top:7px; font-size:12px; line-height:1.6; }
+}
