@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { Eyebrow, PageIntro, SectionHeading, TextLink } from "@/components/ui";
@@ -11,7 +12,7 @@ export default function AboutPage() {
   return <>
     <PageIntro index="02" eyebrow="THE PERSON BEHIND THE PROJECTS" title={<>Beyond the plans.<br/><em>Behind the progress.</em></>} description="My work is rooted in one belief: the best outcomes come when clear strategy, adaptable methods and the right people move together."/>
     <section className="section story-section"><div className="container story-layout">
-      <Reveal><div className="story-visual"><div className="story-monogram">B<span>K</span><i>.</i></div><p>BRIDGING VISION<br/>AND EXECUTION</p><span>EST. IN ENTERPRISE DELIVERY</span></div></Reveal>
+      <Reveal><div className="story-visual bk-about-photo"><Image src="/images/bosun-kehinde-portrait-mobile.webp" alt="Portrait of Bosun Kehinde in formal business attire" fill sizes="(max-width: 900px) 100vw, 44vw" quality={87}/><div className="bk-about-photo-caption"><span>THE PERSON BEHIND THE PROJECTS</span><strong>BOSUN KEHINDE</strong></div></div></Reveal>
       <Reveal delay={80}><div className="story-copy"><Eyebrow>01 / MY STORY</Eyebrow><h2>Making complicated things <em>achievable.</em></h2><p>I&apos;m Olatunbosun Adura Kehinde — Bosun to colleagues and collaborators. My career has evolved from hands-on systems implementation to leading technology programmes, service delivery, cross-functional teams and business operations.</p><p>Along the way, I&apos;ve worked across financial platforms, HR and payroll systems, public infrastructure, enterprise integration, electric mobility and organisational transformation. What connects those experiences is an appreciation for the people behind the systems.</p><p>My approach combines the structure of traditional programme management with the flexibility of Agile delivery. The method should serve the challenge — not the other way around.</p><TextLink href="/work">See the work behind the story</TextLink></div></Reveal>
     </div></section>
     <section className="section philosophy-section"><div className="container"><Reveal><Eyebrow light>02 / PRINCIPLES</Eyebrow><h2>Strategy without execution<br/>is only <em>intention.</em></h2><p>“Agility, collaboration and continuous improvement” aren&apos;t just principles on paper. They shape how I build relationships, facilitate decisions and help teams deliver meaningful change.</p></Reveal></div></section>

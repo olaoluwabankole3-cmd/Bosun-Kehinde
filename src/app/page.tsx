@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, MoveUpRight } from "lucide-react";
 import { DeliverySequence } from "@/components/delivery-sequence";
 import { Reveal } from "@/components/reveal";
@@ -10,33 +11,47 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="ed-hero" aria-labelledby="home-title">
-        <div className="container">
-          <div className="ed-hero-labels">
-            <span><i className="ed-bullet"/> BOSUN KEHINDE / PROFESSIONAL PORTFOLIO</span>
-            <span>BASED IN LAGOS, NIGERIA <span className="ed-location-mark">↗</span> GLOBAL PERSPECTIVE</span>
-          </div>
-          <div className="ed-hero-layout">
-            <div className="ed-hero-copy">
-              <p className="ed-overline">TECHNOLOGY. PEOPLE. DELIVERY.</p>
-              <h1 id="home-title">Complex<br/>projects.<br/><em>Clear</em> outcomes<span className="ed-fullstop">.</span></h1>
-              <p className="ed-hero-description">
-                I&apos;m <strong>Bosun Kehinde</strong> — a programme and technology leader
-                bringing strategy, people and execution together to move complex work forward.
-              </p>
-              <div className="ed-actions">
-                <Link href="/work" className="ed-primary">Explore selected work <ArrowUpRight size={18}/></Link>
-                <Link href="/about" className="ed-inline">Discover my story <ArrowRight size={17}/></Link>
+      <section className="bk-hero" aria-labelledby="home-title">
+        <div className="bk-hero-grid">
+          <div className="bk-hero-copy">
+            <div className="bk-hero-eyebrow"><span className="bk-eyebrow-mark"/> <span>THE PERSON BEHIND THE PROGRESS</span><span>01 / 06</span></div>
+            <div className="bk-hero-message">
+              <p className="bk-kicker">MEET THE PROGRAMME &amp; TECHNOLOGY LEADER</p>
+              <h1 id="home-title">Bosun<br/><em>Kehinde</em><span>.</span></h1>
+              <div className="bk-hero-rule"/>
+              <p className="bk-hero-title">Complex projects.<br/><strong>Clear outcomes.</strong></p>
+              <p className="bk-hero-summary">I bring strategy, people and execution together to move ambitious ideas forward — across technology, enterprise delivery and organisational change.</p>
+              <div className="bk-hero-actions">
+                <Link href="/work" className="bk-hero-primary">Explore selected work <ArrowUpRight size={18} aria-hidden="true"/></Link>
+                <Link href="/about" className="bk-hero-secondary">More about Bosun <ArrowRight size={17} aria-hidden="true"/></Link>
               </div>
             </div>
-            <DeliverySequence/>
+            <div className="bk-hero-bottom">
+              <span>BASED IN LAGOS, NIGERIA</span><span>WORKING ACROSS PEOPLE, SYSTEMS &amp; SECTORS</span>
+            </div>
           </div>
-          <div className="ed-hero-foot">
-            <a href="#introduction"><span className="ed-down-arrow"><ArrowDownRight size={18}/></span> SCROLL TO EXPLORE</a>
-            <span>PROGRAMME MANAGEMENT <i/> AGILE DELIVERY <i/> TRANSFORMATION</span>
-            <span>001 — 006</span>
+          <div className="bk-hero-photo">
+            <Image
+              src="/images/bosun-kehinde-portrait-4k.webp"
+              alt="Bosun Kehinde smiling in a grey suit, white shirt and patterned tie"
+              fill
+              priority
+              quality={88}
+              sizes="(max-width: 850px) 100vw, 55vw"
+              className="bk-hero-image"
+            />
+            <div className="bk-hero-photo-shade" aria-hidden="true"/>
+            <div className="bk-photo-top"><span>BK / PORTRAIT NO. 01</span><span>2026</span></div>
+            <div className="bk-photo-bottom">
+              <span className="bk-photo-label">BOSUN KEHINDE</span>
+              <strong className="bk-photo-mobile-name">Bosun<br/><em>Kehinde.</em></strong>
+              <span className="bk-photo-scroll">SCROLL TO DISCOVER <ArrowDownRight size={17} aria-hidden="true"/></span>
+            </div>
           </div>
         </div>
+        <a href="#introduction" className="bk-hero-scroll-link" aria-label="Scroll down to Bosun Kehinde's introduction">
+          <ArrowDownRight size={17} aria-hidden="true"/>
+        </a>
       </section>
 
       <section className="ed-introduction" id="introduction">
@@ -77,29 +92,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="ed-practice">
-        <div className="container">
-          <Reveal><div className="ed-section-heading ed-practice-heading">
-            <div><span className="ed-section-index">04 / WORKING PHILOSOPHY</span><h2>Different contexts.<br/><em>Intentional delivery.</em></h2></div>
-            <p>There is no one-size-fits-all method. The starting point is always the challenge, the people and the outcome.</p>
+      <section className="bk-method" aria-labelledby="method-heading">
+        <div className="container bk-method-grid">
+          <Reveal><div className="bk-method-copy">
+            <span className="ed-section-index">04 / THE WAY I WORK</span>
+            <h2 id="method-heading">Clarity before<br/><em>complexity.</em></h2>
+            <p>Technology can be complicated. Progress shouldn&apos;t be. Here&apos;s how I bring people, priorities and delivery into focus.</p>
+            <TextLink href="/leadership">Explore my leadership experience</TextLink>
           </div></Reveal>
-          <div className="ed-practice-steps">
-            {[
-              { n: "01", headline: "Understand what matters.", body: "Find the real problem, agree on the desired outcome and make complexity understandable." },
-              { n: "02", headline: "Bring everyone into focus.", body: "Build alignment across stakeholders, delivery teams and changing organisational priorities." },
-              { n: "03", headline: "Adapt. Deliver. Improve.", body: "Combine the right methods, keep progress visible and continuously improve what works." }
-            ].map((step,index) => (
-              <Reveal key={step.n} delay={index*75}>
-                <div className="ed-practice-step">
-                  <span>{step.n}</span>
-                  <h3>{step.headline}</h3>
-                  <p>{step.body}</p>
-                  <span className="ed-step-arrow"><ArrowUpRight size={21}/></span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <TextLink href="/leadership">Leadership and advisory experience</TextLink>
+          <Reveal delay={70}><DeliverySequence/></Reveal>
         </div>
       </section>
 
